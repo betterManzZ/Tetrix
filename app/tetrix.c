@@ -440,15 +440,16 @@ void Tetrix_clearFullLine()
 	i=0;
 	if(isFull==1)
 	{
-	while(flag[ptr1]!=2)
+		//与删除字符串中的空格算法相似
+	while(flag[ptr1]!=2) //相当于字符串结束标志
 	{
 		if(flag[ptr1]==0)
 		{
 				Tetrix_moveLineAToB(ptr1--,ptr2--);
 		}
-		else
+		else //遇到行满（相当于发现空格）
 		{
-			i++;
+			i++;// 用来记录消除的行数的
 			current_score+=10*i;//每消除一行得分
 			LCD_Clear(185,220,20,40,BACKGROUND);
 			LCD_DisNum(185,220,current_score,RED);
